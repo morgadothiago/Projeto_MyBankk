@@ -1,20 +1,35 @@
+import { useState, useEffect } from 'react';
+
+import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import Home from './src/screens/main';
+
+import Loading from './src/components/Loading';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold
+  })
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(true)
+    }, 2000)
+  }, [])
+
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar translucent style='light' />
+      {
+
+        isLoading ? <Home /> : <Loading />
+      }
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
