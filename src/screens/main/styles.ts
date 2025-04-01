@@ -3,10 +3,14 @@ import { colors } from "../../themes/theme";
 
 export const Container = styled.View`
   flex: 1;
+`;
+export const Header = styled.View`
+  background-color: ${colors.primary};
+  height: 25%;
+`;
+
+export const Content = styled.View`
   background-color: ${colors.secondary};
-  justify-content: center;
-  align-items: center;
+  flex: 1;
 `;
-export const Title = styled.Text`
-  font-family: ${colors.fonts.Roboto_400Regular};
-`;
+export const IconArea = styled.View``;
